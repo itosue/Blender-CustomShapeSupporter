@@ -7,6 +7,14 @@ def get_customshape_enum_items():
 	items = [
 		('CustomShape.Stick', "棒", "", 'IPO_LINEAR'),
 		('CustomShape.Arrow', "矢印", "", 'FORWARD'),
+		('CustomShape.ArrowBoth', "両矢印", "", 'ARROW_LEFTRIGHT'),
+		('CustomShape.Thorn', "茨", "", 'CURVE_PATH'),
+		('CustomShape.Octahedral', "八面体", "", 'PMARKER'),
+		('CustomShape.Hook', "フック", "", 'SPHERECURVE'),
+		('CustomShape.Sphere', "球", "", 'ANTIALIASED'),
+		('CustomShape.PlainAxes', "十字", "", 'ZOOMIN'),
+		('CustomShape.Circle', "円", "", 'CURSOR'),
+		('CustomShape.Eye', "目", "", 'VISIBLE_IPO_ON'),
 		]
 	for i, item in enumerate(items): items[i] = tuple(list(item) + [i + 1])
 	return items
