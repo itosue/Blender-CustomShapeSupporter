@@ -22,6 +22,7 @@ if 'bpy' in locals():
 	imp.reload(customshape_add)
 	imp.reload(customshape_add_from_subselect)
 	imp.reload(customshape_add_from_mirror)
+	imp.reload(customshape_remove)
 	
 	imp.reload(customshape_edit)
 	imp.reload(customshape_link)
@@ -35,6 +36,7 @@ else:
 	from . import customshape_add
 	from . import customshape_add_from_subselect
 	from . import customshape_add_from_mirror
+	from . import customshape_remove
 	
 	from . import customshape_edit
 	from . import customshape_link

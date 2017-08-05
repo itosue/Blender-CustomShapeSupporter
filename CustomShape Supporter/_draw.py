@@ -23,18 +23,21 @@ def append(self, context):
 	row.operator('pose.css_customshape_add_from_mirror', icon='MOD_MIRROR')
 	
 	# 二段目
-	row = box_main.row(align=True)
+	row = box_main.row(align=False)
 	# 編集
 	row.operator('pose.css_customshape_edit', icon='EDITMODE_HLT')
 	# リンク
-	row.operator('pose.css_customshape_link', icon='LINKED')
+	row_sub = row.row(align=True)
+	row_sub.operator('pose.css_customshape_link', icon='LINKED')
 	# リンク解除
-	row.operator('pose.css_customshape_unlink', icon='UNLINKED')
+	row_sub.operator('pose.css_customshape_unlink', icon='UNLINKED')
+	# 削除
+	row.operator('pose.css_customshape_remove', icon='X')
 	
 	# 三段目
-	row = box_main.row(align=True)
+	row = box_main.row(align=False)
 	# シングルユーザー化
-	row_local = row.row(align=True)
+	row_local = row.row()
 	row_local.operator('pose.css_customshape_singlize', icon='COPY_ID')
 	def css_customshape_singlize_poll(context):
 		try:

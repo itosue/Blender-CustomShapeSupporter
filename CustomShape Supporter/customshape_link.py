@@ -9,7 +9,7 @@ class css_customshape_link(bpy.types.Operator):
 	@classmethod
 	def poll(cls, context):
 		try:
-			if not context.active_object: return False
+			if context.active_object.type != 'ARMATURE': return False
 			for pose_bone in context.active_object.pose.bones:
 				if pose_bone.custom_shape:
 					if pose_bone.custom_shape.name not in context.scene.objects.keys(): return True
