@@ -6,7 +6,7 @@ class css_customshape_rename(bpy.types.Operator):
 	bl_description = "カスタムシェイプ用オブジェクトをまとめてリネーム"
 	bl_options = {'REGISTER', 'UNDO'}
 	
-	is_selected_only = bpy.props.BoolProperty(name="選択ボーンのみ", default=True)
+	is_selected_only = bpy.props.BoolProperty(name="選択ボーンのみ", default=False)
 	
 	rename_before = bpy.props.StringProperty(name="前に", default="￥|")
 	rename_split = bpy.props.StringProperty(name="接続", default="|")
@@ -38,6 +38,7 @@ class css_customshape_rename(bpy.types.Operator):
 		else: pose_bones = [pb for pb in ob.pose.bones]
 		
 		for pose_bone in pose_bones:
+			if not pose_bone.custom_shape: continue
 			new_name = self.rename_before + context.active_object.name + self.rename_split + pose_bone.name + self.rename_after
 			if pose_bone.custom_shape.name == new_name: continue
 			pose_bone.custom_shape.name = new_name
